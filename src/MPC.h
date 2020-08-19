@@ -20,7 +20,7 @@ constexpr double pi() { return M_PI; }
 double deg2rad(double x ) { return x * pi() / 180; }
 double rad2deg(double x) { return x * 180 / pi(); }
  
-  std::vector<double> mpc_path_x_; // MPC's planned path x coords
+  std::vector<double> mpc_path_x_; 
   std::vector<double> mpc_path_y_;
 };
 

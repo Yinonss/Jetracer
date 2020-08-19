@@ -71,7 +71,7 @@ int main() {
            
            
           /**
-           * TODO: Calculate steering angle and throttle using MPC.
+           * Calculate steering angle and throttle using MPC.
            * Both are in between [-1, 1].
            */
           //Transform waypoints from the map coordinate system into car coordinate system.
@@ -124,7 +124,7 @@ int main() {
 
       
           /**
-           * TODO: add (x,y) points to list here, points are in reference to 
+           * Add (x,y) points to list here, points are in reference to 
            *   the vehicle's coordinate system the points in the simulator are 
            *   connected by a Green line
            */
@@ -140,7 +140,7 @@ int main() {
           vector<double> next_y_vals;
 
           /**
-           * TODO: add (x,y) points to list here, points are in reference to 
+           * Add (x,y) points to list here, points are in reference to 
            *   the vehicle's coordinate system the points in the simulator are 
            *   connected by a Yellow line
            */
