@@ -11,6 +11,14 @@ In addition, you can also watch our [test simulation video](https://www.youtube.
 
 
 
+
+
+![](Images/Jetracer.png)
+
+
+
+
+
 ---
 
 ## Dependencies
