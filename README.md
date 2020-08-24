@@ -4,7 +4,7 @@
 In this repository, we present our final project in the course Autonomous Robots, that is an autonomous racing car implemented with nonlinear model predictive control (MPC) in a real-time environment, using the basic code construct provided by [CarND-MPC-Project](https://github.com/udacity/CarND-MPC-Project), and tested with Udacity's [autonomous car simulator](https://github.com/udacity/self-driving-car-sim/releases).
 Instructions for implementation and compilation can be found in the descriptions below.
 
-Additionally, in our paper ***"Nonlinear MPC Based Autonomous Racing Vehicle in Real-Time"***, we review the theories and practice of a nonlinear MPC implemented vehicle, while presenting the results of our experiment as well as an overview of its performance as a racing vehicle, with detailed graphs and informational tables.
+Additionally, in our paper [*Nonlinear MPC Based Autonomous Racing Vehicle in Real-Time*](https://github.com/Yinonss/Jetracer/blob/master/Nonlinear%20MPC%20Based%20Autonomous%20Racing%20Vehicle%20in%20Real-Time.pdf), we review the theories and practice of a nonlinear MPC implemented vehicle, while presenting the results of our experiment as well as an overview of its performance as a racing vehicle, with detailed graphs and informational tables.
 
 Moreover, you can also watch our [test simulation video](https://www.youtube.com/watch?v=IgWaym9goIc), to see for yourself how our model performs in real-time.
 
