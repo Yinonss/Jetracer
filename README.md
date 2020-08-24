@@ -2,7 +2,7 @@
 ## Autonomous Robots, 2020
 
 This is an autonomous racing car implemented with nonlinear model predictive control (MPC) in a real-time environment, using the basic code construct provided by [CarND-MPC-Project](https://github.com/udacity/CarND-MPC-Project), and tested with Udacity's [autonomous car simulator](https://github.com/udacity/self-driving-car-sim/releases).
-Instructions for implementation and compilation can be found in the links above.
+Instructions for implementation and compilation can be found in the descriptions below.
 
 In our paper, we review the theories and practice of a nonlinear MPC implemented vehicle, while presenting the results of our experiment as well as an overview of its performance as a racing vehicle. 
 
