@@ -56,8 +56,6 @@ class FG_eval {
      *  implement MPC
      * `fg` is a vector of the cost constraints, `vars` is a vector of variable 
      *   values (state & actuators)
-     * NOTE: You'll probably go back and forth between this function and
-     *   the Solver function below.
      */
    
      // Panalize values:
