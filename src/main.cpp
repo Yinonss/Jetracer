@@ -151,10 +151,7 @@ int main() {
           // The purpose is to mimic real driving conditions where
           //   the car does actuate the commands instantly.
           //
-          // Feel free to play around with this value but should be to drive
-          //   around the track with 100ms latency.
-          //
-          // NOTE: REMEMBER TO SET THIS TO 100 MILLISECONDS BEFORE SUBMITTING.
+
        
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
         }  // end "telemetry" if
