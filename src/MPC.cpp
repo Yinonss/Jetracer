@@ -176,7 +176,7 @@ std::vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
       vars_lowerbound[i] = -1.0e19;
       vars_upperbound[i] = 1.0e19;
   }
-  // Limts on steering angles : [-25, 25]
+  // Limits on steering angles : [-25, 25]
   for(int i = angle_offset; i < acc_offset; i++){
      vars_lowerbound[i] = deg2rad(-25);
      vars_upperbound[i] = deg2rad(25);  
