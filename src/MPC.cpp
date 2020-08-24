@@ -32,9 +32,8 @@ size_t epsi_offset = cte_offset + N;
 size_t angle_offset = epsi_offset + N;
 size_t acc_offset = angle_offset + N - 1;
 
-// This value assumes the model presented in the classroom is used.
-//
-// It was obtained by measuring the radius formed by running the vehicle in the
+
+// This value was obtained by measuring the radius formed by running the vehicle in the
 //   simulator around in a circle with a constant steering angle and velocity on
 //   a flat terrain.
 //
