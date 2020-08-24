@@ -27,22 +27,21 @@ using std::ofstream;
 int main() {
   uWS::Hub h;                    // Web server
   MPC mpc;                       // set MPC
+ 
   //Set variables for the csv file
   bool new_round = false;
   int rounds = 0;
-  double init_x, init_y;
-  bool set_init_xy = false;
   ofstream log;
   log.open("log.csv");
 
 
-  h.onMessage([&mpc,&log,&set_init_xy,&rounds,&new_round](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
+  h.onMessage([&mpc,&log,&rounds,&new_round](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
                      uWS::OpCode opCode) {
-   
+    
+    // Get data from web server.
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
     // The 2 signifies a websocket event
-
     string sdata = string(data).substr(0, length);
     std::cout << sdata << std::endl;
     if (sdata.size() > 2 && sdata[0] == '4' && sdata[1] == '2') { 
@@ -65,7 +64,7 @@ int main() {
              rounds++;
              new_round=false;
            }
-          // If we've to the second waypoint - set flag to false.
+          // If we've reached to the second waypoint - set flag to false.
           if (px >= -43.4917 - 2 && px <= -43.4917 +  2 && py >= 105.941 -  2 && py <= 105.941 +  2)
              new_round = true;
            
@@ -74,6 +73,7 @@ int main() {
            * Calculate steering angle and throttle using MPC.
            * Both are in between [-1, 1].
            */
+          
           //Transform waypoints from the map coordinate system into car coordinate system.
           vector<double> waypoints_x;
           vector<double> waypoints_y;
@@ -95,7 +95,7 @@ int main() {
           Eigen::Map<Eigen::VectorXd> waypoints_x_eig(ptrx, 6);
           Eigen::Map<Eigen::VectorXd> waypoints_y_eig(ptry, 6);
           
-
+          //Set coeffs vector
           auto coeffs = polyfit(waypoints_x_eig, waypoints_y_eig, 3);
           double cte = 0;
           double epsi = 0;
@@ -110,28 +110,23 @@ int main() {
           double throttle_value = vars[1];
 
           json msgJson;
-          // NOTE: Remember to divide by deg2rad(25) before you send the 
-          //   steering value back. Otherwise the values will be in between 
-          //   [-deg2rad(25), deg2rad(25] instead of [-1, 1].
+          // Update steering and throttle
           msgJson["steering_angle"] = steer_value / mpc.MPC::deg2rad(25);
           msgJson["throttle"] = throttle_value;
+
 
           // Display the MPC predicted trajectory 
           vector<double> mpc_x_vals;
           vector<double> mpc_y_vals;
-
-
-
-      
+     
           /**
            * Add (x,y) points to list here, points are in reference to 
            *   the vehicle's coordinate system the points in the simulator are 
            *   connected by a Green line
+           *   (Optional)
            */
         
-           
-         
-
+                    
           msgJson["mpc_x"] = mpc_x_vals;
           msgJson["mpc_y"] = mpc_y_vals;
 
@@ -143,18 +138,15 @@ int main() {
            * Add (x,y) points to list here, points are in reference to 
            *   the vehicle's coordinate system the points in the simulator are 
            *   connected by a Yellow line
+           *   (Optional)
            */
-           
-          
-
+                     
           msgJson["next_x"] = next_x_vals;
           msgJson["next_y"] = next_y_vals;
           
-
        
-
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
-         // std::cout << msg << std::endl;
+          std::cout << msg << std::endl;
           // Latency
           // The purpose is to mimic real driving conditions where
           //   the car does actuate the commands instantly.

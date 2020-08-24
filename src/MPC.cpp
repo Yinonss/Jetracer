@@ -10,16 +10,18 @@
 using CppAD::AD;
 using Eigen::VectorXd;
 using std::string;
-/**
- * Set the timestep length and duration
- */
+
 double deg2rad(double x ) { return x * M_PI / 180; }
  
-//Set sample window parameters.
+ /**
+ * Set the timestep length and duration (sample window).
+ */
 const size_t N = 8;
 double dt = 0.15;
+
 //Set the goal speed.
 double target_v = 120;
+
 // For every state values set an offset.
 size_t x_offset = 0;
 size_t y_offset = x_offset + N;
@@ -212,7 +214,7 @@ std::vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
   // object that computes objective and constraints
   FG_eval fg_eval(coeffs);
 
-  // NOTE: You don't have to worry about these options
+
   // options for IPOPT solver
   std::string options;
   // Uncomment this if you'd like more print information
@@ -251,7 +253,7 @@ std::vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
    */
  
 
-
+   // Set actuation vector and add Ipopt solutions.
    std::vector<double> actuation;
 
    actuation.push_back(solution.x[angle_offset]);
